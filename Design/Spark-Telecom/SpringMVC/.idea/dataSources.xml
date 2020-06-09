@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="MySQL Online" read-only="true" uuid="9f8cb4b1-7b7a-419f-aadc-c3fb62b50e06">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://dragon1573.wang:3306/spark_web</jdbc-url>
+      <time-zone>Asia/Shanghai</time-zone>
+      <code-style-scheme-name>Alibaba P3C CodeStyle</code-style-scheme-name>
+    </data-source>
+  </component>
+</project>
