@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间，分类管理SQL语句 -->
+<mapper namespace="wang.dragon1573.mapping.UserMapper">
+  <!-- 获取用户渠道趋势分析维度 -->
+  <select id="getViewAreaChannelDim" resultType="String">
+    SELECT DISTINCT channelname
+    FROM v_area_channel
+    ORDER BY channelname DESC;
+  </select>
+  <!-- 用户渠道趋势分析 -->
+  <select id="getViewAreaChannel"
+          parameterType="String"
+          resultType="wang.dragon1573.model.ViewAreaChannel">
+    SELECT *
+    FROM v_area_channel
+    WHERE channelname = #{dim}
+    ORDER BY areaname DESC;
+  </select>
+  <!-- 获取用户区域渠道情况 -->
+  <select id="getViewAreaChannelAll" resultType="wang.dragon1573.model.ViewAreaChannel">
+    SELECT *
+    FROM v_area_channel
+    ORDER BY areaname DESC;
+  </select>
+  <!-- 用户请求方式对比维度 -->
+  <select id="getViewAreaRequestTypeDim" resultType="String">
+    SELECT DISTINCT requesttypename
+    FROM v_area_requesttype
+    ORDER BY requesttypename DESC;
+  </select>
+  <!-- 用户请求方式对比分析 -->
+  <select id="getViewAreaRequestType"
+          parameterType="String"
+          resultType="wang.dragon1573.model.ViewAreaRequestType">
+    SELECT *
+    FROM v_area_requesttype
+    WHERE requesttypename = #{dim}
+    ORDER BY areaname DESC;
+  </select>
+  <!-- 用户请求方式饼图情况 -->
+  <select id="getViewAreaRequestTypeAll"
+          resultType="wang.dragon1573.model.ViewAreaRequestType">
+    SELECT *
+    FROM v_area_requesttype
+    ORDER BY areaname DESC;
+  </select>
+  <select id="getViewChannelNo" resultType="wang.dragon1573.model.ViewChannelNo">
+    SELECT *
+    FROM v_channelno;
+  </select>
+  <select id="getDetail" resultType="wang.dragon1573.model.ViewUserDetail">
+    SELECT *
+    FROM v_user_detail
+    ORDER BY imei DESC;
+  </select>
+</mapper>

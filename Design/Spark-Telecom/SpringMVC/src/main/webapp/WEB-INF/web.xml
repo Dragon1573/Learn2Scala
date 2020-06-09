@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+            http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+            id="WebApp_ID" version="4.0">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- 读取Spring配置文件 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+      classpath:conf/spring.xml; classpath:conf/spring-mybatis.xml
+    </param-value>
+  </context-param>
+
+  <!-- 设计路径变量值 -->
+  <context-param>
+    <param-name>webAppRootKey</param-name>
+    <param-value>springmvc.root</param-value>
+  </context-param>
+
+  <!-- Spring字符集过滤器 -->
+  <filter>
+    <filter-name>SpringEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>SpringEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- 日志记录 -->
+  <context-param>
+    <!-- 日志配置文件路径 -->
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:conf/log4j.properties</param-value>
+  </context-param>
+  <context-param>
+    <!-- 日志页面的刷新间隔 -->
+    <param-name>log4jRefreshInterval</param-name>
+    <param-value>6000</param-value>
+  </context-param>
+  <!-- Log4J 配置 -->
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!-- Spring MVC 核心配置 -->
+  <servlet>
+    <servlet-name>spring</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:conf/spring-mvc.xml</param-value>
+    </init-param>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Spark App" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="dragon1573.wang.UserOnlineAnalysis" />
+    <module name="Spark_Web" />
+    <option name="PROGRAM_PARAMETERS" value="file://$PROJECT_DIR$/../datasets/datasets.txt" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
